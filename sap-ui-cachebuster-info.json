@@ -1,3 +1,19 @@
 {
-  "README.md": "1447880867000"
+  "model/metadata.xml": "1447881542000",
+  "view/NotFound.view.xml": "1447881538000",
+  "view/NotFound.controller.js": "1447881538000",
+  "view/Master.view.xml": "1447881538000",
+  "view/Master.controller.js": "1447881538000",
+  "view/Detail.view.xml": "1447881538000",
+  "view/Detail.controller.js": "1447881538000",
+  "view/App.view.xml": "1447881538000",
+  "view/App.controller.js": "1447881538000",
+  "i18n/messageBundle.properties": "1447881538000",
+  "css/style.css": "1447881538000",
+  "MyRouter.js": "1447881538000",
+  "localIndex.html": "1447881538000",
+  "index.html": "1447881538000",
+  "Component.js": "1447881538000",
+  "README.md": "1447880867000",
+  "preview_hidden.html": "1447881558000"
 }

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="./destinations/er3-backend/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZME_OVERDUE_ITEMS_SRV_01" xml:lang="en" sap:schema-version="1"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Zme_OverdueType" sap:label="ZME_OVERDUE" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Zme_OverdueType"/>
+                    <PropertyRef Name="PurchaseOrderItem"/>
+                    <PropertyRef Name="PurchaseOrder"/>
+                </Key>
+                <Property Name="Zme_OverdueType" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Purchasing Document" sap:creatable="false"/>
+                <Property Name="SupplierName" Type="Edm.String" MaxLength="35" sap:label="Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchaseOrderCurrency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="PurchaseOrderItemNetAmount" Type="Edm.Decimal" Precision="14" Scale="3" sap:unit="PurchaseOrderCurrency" sap:label="Net Order Value" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchaseOrderItemOpenNetAmount" Type="Edm.Decimal" Precision="27" Scale="5" sap:unit="PurchaseOrderCurrency" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchaseOrderItemMaterial" Type="Edm.String" MaxLength="40" sap:label="Material" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MaterialName" Type="Edm.String" MaxLength="40" sap:label="Material Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchaseOrderItem" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Item" sap:creatable="false"/>
+                <Property Name="PurchaseOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Purchasing Document" sap:creatable="false"/>
+                <Property Name="OrderedAmount" Type="Edm.Decimal" Precision="13" Scale="3" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ReceivedAmount" Type="Edm.Decimal" Precision="13" Scale="3" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeltaAmount" Type="Edm.Decimal" Precision="14" Scale="3" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryDate" Type="Edm.DateTime" Precision="0" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OverdueTime" Type="Edm.Int32" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Supplier" Type="Edm.String" MaxLength="10" sap:label="Supplier" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZME_OVERDUE_ITEMS_SRV_01_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="Zme_Overdue" EntityType="ZME_OVERDUE_ITEMS_SRV_01.Zme_OverdueType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="ZME_OVERDUE_ITEMS_SRV_01.Zme_OverdueType"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="Zme_OverdueType"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseOrder"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseOrderItem"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="SupplierName"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="MaterialName"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="OverdueTime"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="PurchaseOrderItemNetAmount"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZME_OVERDUE_ITEMS_SRV_01.Zme_OverdueType/Zme_OverdueType"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="Zme_OverdueType"/>
+            </Annotations>
+            <atom:link rel="self" href="./destinations/er3-backend/sap/opu/odata/sap/ZME_OVERDUE_ITEMS_SRV_01/$metadata"
+                xmlns:atom="http://www.w3.org/2005/Atom"/>
+                <atom:link rel="latest-version" href="./destinations/er3-backend/sap/opu/odata/sap/ZME_OVERDUE_ITEMS_SRV_01/$metadata"
+                    xmlns:atom="http://www.w3.org/2005/Atom"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
